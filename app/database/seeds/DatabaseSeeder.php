@@ -28,7 +28,8 @@ class UserTableSeeder extends Seeder {
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('123456'),
-            'usergroup_id' => 1
+            'usergroup_id' => 1,
+            'profile_icon' => 'no-user.jpg'
             )
         );
         

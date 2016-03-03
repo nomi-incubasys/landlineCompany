@@ -42,7 +42,7 @@
                     @if($row['status']==0)
                     Enquiry
                     @else
-                    Assessment
+                    Examined and Approved
                     @endif
                 </td>
                 <td>{{$row['created_at']}}</td>
