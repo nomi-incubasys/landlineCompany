@@ -114,12 +114,12 @@
                         @if(Auth::check())
                             
                             <li><a href="#">Complaints</a></li>
-                            <li><a href="/users">Users</a></li>
+                            <li><a href="users">Users</a></li>
                             <li><a href="#"></a></li>
                             <li><a class="dropdown-toggle" role="button" data-toggle="dropdown" style="color: rgb(242, 222, 222);">{{Auth::user()->name}}
                                     <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li id="logout"><a href="/logout">Logout</a></li>
+                                        <li id="logout"><a href="logout">Logout</a></li>
                                     </ul>
                             </li>
                             @if(Auth::user()->profile_icon)

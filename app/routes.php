@@ -35,8 +35,8 @@ Route::group(array('before' => 'service'), function() {
         return View::make('layouts.main');
     });
     
-//    Route::resource('users', 'UserController');
-//    
+    Route::get('changestatus/{id}', 'ComplaintsController@approveComplaint');
+    
     Route::get('usercomplaints', 'UserController@service');
     
 });

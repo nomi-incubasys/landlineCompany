@@ -42,7 +42,7 @@ class ComplaintsController extends \BaseController {
 
             $Complaint->save();
             
-            return Redirect::to('/complaints');
+            return Redirect::to('complaints');
 	}
 
 
@@ -86,7 +86,7 @@ class ComplaintsController extends \BaseController {
             
             $store->update();
             
-            return Redirect::to('/complaints');
+            return Redirect::to('complaints');
 	}
 
 
@@ -100,6 +100,15 @@ class ComplaintsController extends \BaseController {
 	{
 		//
 	}
+        
+        public function approveComplaint($id) {
+            
+            $complaint = Complaint::find($id);
+            $complaint->status = 1;
+            $complaint->update();
+            
+            return Redirect::to('usercomplaints');
+        }
 
 
 }

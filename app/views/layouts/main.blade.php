@@ -113,13 +113,13 @@
                     <ul class="nav navbar-nav navbar-right" >
                         @if(Auth::check())
   
-                            <li><a href="/usercomplaints">Complaints</a></li>
+                            <li><a href="usercomplaints">Complaints</a></li>
                             <li><a href="#">Customers</a></li>
                             <li><a href="#"></a></li>
                             <li><a class="dropdown-toggle" role="button" data-toggle="dropdown">{{Auth::user()->name}}
                                     <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li id="logout"><a href="/logout">Logout</a></li>
+                                        <li id="logout"><a href="logout">Logout</a></li>
                                     </ul>
                             </li>
                             <li>
