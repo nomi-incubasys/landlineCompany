@@ -56,9 +56,10 @@
             }
             img {
                 -webkit-transition: all 0.25s ease-in; // Safari & chrome
-                -moz-transition: 0.25s ease-in; // Mozilla Firefox 
-                -ms-transition: 0.25s ease-in; // IE 
-                -o-transition: 0.25s ease-in; //  Opera 
+                -ms-transition: all 0.25s ease-in; // IE 
+                -o-transition: all 0.25s ease-in; //  Opera 
+                -moz-transition: all 0.25s ease-in;
+                transition: all 0.25s ease-in;
             }
 
             img:hover {
