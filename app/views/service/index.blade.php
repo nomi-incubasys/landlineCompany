@@ -1,4 +1,4 @@
-@extends('layouts.client')
+@extends('layouts.main')
 
 @section('content')
 
@@ -6,10 +6,7 @@
 
 <div>
     <div id="main-heading">
-        <h4>COMPLAINTS</h4> 
-    </div>
-    <div id="reg-compaint">
-        <a href="{{ route('complaints.create') }}" role="button" class="btn btn-default"><b>Register a Complaint</b></a><br/><br/>
+        <h4>USER COMPLAINTS</h4> 
     </div>
 </div>
 
@@ -23,6 +20,7 @@
                 <th>Subject</th>
                 <th>Complaint</th>
                 <th>Status</th>
+                <th>Customer</th>
                 <th>Registered At</th>
                 <th>Action</th>
                 <th></th>
@@ -34,33 +32,41 @@
             @foreach ($result as $row)
 
             <?php $count++; ?>
-            @if(Auth::user()->usergroup_id=3)
+            
             <tr>
                 <td>{{$count}}</td>
                 <td>{{$row['complaint_subject']}}</td>
                 <td>{{$row['complaint_body']}}</td>
                 <td>
                     @if($row['status']==0)
-                        Enquiry
+                    Enquiry
                     @else
-                        Examined and Approved
+                    Examined & Processed
                     @endif
+                </td>
+                <td><?php 
+                        $customer_name = User::find($row['user_id']);
+                        echo $customer_name['name'];
+                     ?>
                 </td>
                 <td>{{$row['created_at']}}</td>
                 <td>
-                    {{ Form::open(array('route' => array('complaints.destroy', $row['id']), 'method' => 'delete')) }}
-                        @if($row['status']==0) <a href="{{ route('complaints.edit',$row['id']) }}"> Edit </a> | @endif <a id="del-complaint" href="javascript:void();"> Delete </a> 
-                    {{ Form::close() }}
+                    
+                    @if($row['status']==0) <a href="changestatus/{{$row['id']}}" >Approve</a> | @endif <a  href="deletecomplaint/{{$row['id']}}"> Delete </a> 
+                    
                 </td>
                 <td>
                     @if($row['status']!=0) 
+                    
                         <span class="glyphicon glyphicon-ok-sign" style="color: green;" data-toggle="tooltip" title="Complaint Approved" ></span> 
+                    
                     @else
+                    
                         <span class="glyphicon glyphicon-minus-sign" style="color: red;" data-toggle="tooltip" title="Complaint In Progress" ></span> 
+                    
                     @endif
                 </td>
             </tr>
-            @endif
 
             @endforeach
 
@@ -73,13 +79,9 @@
 $(document).ready(function(){
     
    $('[data-toggle="tooltip"]').tooltip(); 
-    
-   $(document).on("click","#del-complaint",function(){
-     var form = $(this).closest("form");
-     form.submit();
-   });
   
 });
 </script>
+
 
 @stop

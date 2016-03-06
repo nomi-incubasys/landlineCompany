@@ -3,7 +3,7 @@
 @section('content')
 
 
-<h4><p>USER  FORM  REGISTRATION</p></h4>
+<h4>USER  FORM  REGISTRATION</h4>
 <?php $count = 0; ?>
 
 <div>
@@ -36,24 +36,20 @@
                 <td><img src="uploads/{{$row['profile_icon']}}" style="width:50px;height:50px;"></td>
                 <td>
                 <?php 
-                if ($row['usergroup_id']==1)
-                {
-                    echo 'Super Admin';
-                }
-                else if ($row['usergroup_id']==2)
-                {
-                    echo 'Service Provider';
-                }
-                else if ($row['usergroup_id']==3)
-                {
-                    echo 'Customer';
-                }
+                    if ($row['usergroup_id']==2)
+                    {
+                        echo 'Service Provider';
+                    }
+                    else if ($row['usergroup_id']==3)
+                    {
+                        echo 'Customer';
+                    }
                 ?>
                 </td>
                 <td>{{$row['created_at']}}</td>
                 <td>
                     {{ Form::open(array('route' => array('users.destroy', $row['id']), 'method' => 'delete')) }}
-                        <a href="{{ route('users.edit',$row['id']) }}">EDIT</a> |<a class="del-button" href="javascript:void();"> DELETE </a> 
+                        <a href="{{ route('users.edit',$row['id']) }}"> Edit </a> | <a class="del-button" href="javascript:void();"> Delete </a> 
                     {{ Form::close() }}
                 </td>
             </tr>

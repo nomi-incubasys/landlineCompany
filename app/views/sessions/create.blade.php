@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-\ 
+
 {{ Form::open(['route' => array('sessions.store')]) }}
 
     
