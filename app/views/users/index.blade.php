@@ -3,7 +3,7 @@
 @section('content')
 
 
-<h4><p>USER  FORM  REGISTRATION</p></h4>
+<h4>USER  FORM  REGISTRATION</h4>
 <?php $count = 0; ?>
 
 <div>

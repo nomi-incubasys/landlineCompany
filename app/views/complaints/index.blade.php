@@ -49,7 +49,7 @@
                 <td>{{$row['created_at']}}</td>
                 <td>
                     {{ Form::open(array('route' => array('complaints.destroy', $row['id']), 'method' => 'delete')) }}
-                        @if($row['status']==0) <a href="{{ route('complaints.edit',$row['id']) }}">Edit</a> | @endif <a id="del-complaint" href="javascript:void();"> Delete </a> 
+                        @if($row['status']==0) <a href="{{ route('complaints.edit',$row['id']) }}"> Edit </a> | @endif <a id="del-complaint" href="javascript:void();"> Delete </a> 
                     {{ Form::close() }}
                 </td>
                 <td>
