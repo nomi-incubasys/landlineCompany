@@ -24,14 +24,12 @@ class SessionsController extends \BaseController {
 	{
             if(Auth::attempt(Input::only('email','password')))
             {
-                
                 return Redirect::to('/');
-                
             }
             else 
             {
-                $message = 'Login Failed';
-                return Redirect::to('login')->with('message');
+                $data['message'] = 'Incorrect Email Address or Password';
+                return View::make('sessions.create', $data);
             }
             
 	}

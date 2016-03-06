@@ -114,7 +114,7 @@
                         @if(Auth::check())
   
                             <li><a href="usercomplaints">Complaints</a></li>
-                            <li><a href="#">Customers</a></li>
+                            <li><a href="customers">Customers</a></li>
                             <li><a href="#"></a></li>
                             <li><a class="dropdown-toggle" role="button" data-toggle="dropdown">{{Auth::user()->name}}
                                     <span class="caret"></span></a>

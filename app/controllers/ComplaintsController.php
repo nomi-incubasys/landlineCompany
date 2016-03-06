@@ -98,7 +98,9 @@ class ComplaintsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+            $result = Complaint::find($id);
+            $result->delete();
+            return Redirect::to('complaints');
 	}
         
         public function approveComplaint($id) {
@@ -109,6 +111,13 @@ class ComplaintsController extends \BaseController {
             
             return Redirect::to('usercomplaints');
         }
+        
+        public function deleteComplaint($id)
+	{
+            $result = Complaint::find($id);
+            $result->delete();
+            return Redirect::to('usercomplaints');
+	}
 
 
 }

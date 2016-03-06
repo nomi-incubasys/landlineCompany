@@ -25,6 +25,7 @@
                 <th>Status</th>
                 <th>Registered At</th>
                 <th>Action</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -40,19 +41,26 @@
                 <td>{{$row['complaint_body']}}</td>
                 <td>
                     @if($row['status']==0)
-                    Enquiry
+                        Enquiry
                     @else
-                    Examined and Approved
+                        Examined and Approved
                     @endif
                 </td>
                 <td>{{$row['created_at']}}</td>
                 <td>
                     {{ Form::open(array('route' => array('complaints.destroy', $row['id']), 'method' => 'delete')) }}
-                        <a href="{{ route('complaints.edit',$row['id']) }}">EDIT</a> |<a id="del-complaint" href="javascript:void();"> DELETE </a> 
+                        @if($row['status']==0) <a href="{{ route('complaints.edit',$row['id']) }}">EDIT</a> | @endif <a id="del-complaint" href="javascript:void();"> DELETE </a> 
                     {{ Form::close() }}
                 </td>
+                <td>
+                    @if($row['status']!=0) 
+                        <span class="glyphicon glyphicon-ok-sign" style="color: green;" data-toggle="tooltip" title="Complaint Approved" ></span> 
+                    @else
+                        <span class="glyphicon glyphicon-minus-sign" style="color: red;" data-toggle="tooltip" title="Complaint In Progress" ></span> 
+                    @endif
+                </td>
             </tr>
-             @endif
+            @endif
 
             @endforeach
 
@@ -63,10 +71,14 @@
 
 <script>
 $(document).ready(function(){
+    
+   $('[data-toggle="tooltip"]').tooltip(); 
+    
    $(document).on("click","#del-complaint",function(){
      var form = $(this).closest("form");
      form.submit();
    });
+  
 });
 </script>
 

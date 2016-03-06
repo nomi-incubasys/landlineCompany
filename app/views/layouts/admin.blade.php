@@ -114,7 +114,7 @@
                         @if(Auth::check())
                             
                             <li><a href="#">Complaints</a></li>
-                            <li><a href="users">Users</a></li>
+                            <li><a href="/users">Users</a></li>
                             <li><a href="#"></a></li>
                             <li><a class="dropdown-toggle" role="button" data-toggle="dropdown" style="color: rgb(242, 222, 222);">{{Auth::user()->name}}
                                     <span class="caret"></span></a>
@@ -136,7 +136,7 @@
             </div>
         </nav>
         <div class="container">
-            </br></br>
+            <br/><br/>
             @yield('content')
         </div>
         <!--        <footer class="container-fluid bg-4 text-center">

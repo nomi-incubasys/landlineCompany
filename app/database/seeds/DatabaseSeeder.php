@@ -22,7 +22,7 @@ class UserTableSeeder extends Seeder {
 
     public function run()
     {
-//        DB::table('users')->delete();
+        DB::table('users')->delete();
 
         User::create(array(
             'name' => 'admin',
@@ -40,7 +40,7 @@ class UserGroupTableSeeder extends Seeder {
     
     public function run()
     {
-//        DB::table('usergroups')->delete();
+        DB::table('usergroups')->delete();
         
         Usergroup::create(array(
             'name' => 'superadmin',
@@ -56,7 +56,6 @@ class UserGroupTableSeeder extends Seeder {
             'name' => 'customer',
             )
         );
-        
         
     }
 

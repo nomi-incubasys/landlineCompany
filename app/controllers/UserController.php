@@ -110,6 +110,19 @@ class UserController extends \BaseController {
         return View::make('service.index',$data);
         
     }
+    public function showCustomers() {
+        
+        $data['result'] = User::all();
+        return View::make('service.customer',$data);
+        
+    }
+    public function deleteCustomers($id) {
+        
+        $result = User::find($id);
+        $result->delete();
+        return View::make('service.customer',$data);
+        
+    }
 //    
 //    public function sendEmail() {
 //        

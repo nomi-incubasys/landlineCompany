@@ -28,6 +28,7 @@ Route::group(array('before' => 'admin'), function() {
     
 });
 
+
 Route::group(array('before' => 'service'), function() {
 
     Route::get('/service', function()
@@ -37,9 +38,16 @@ Route::group(array('before' => 'service'), function() {
     
     Route::get('changestatus/{id}', 'ComplaintsController@approveComplaint');
     
+    Route::get('deletecomplaint/{id}', 'ComplaintsController@deleteComplaint');
+    
     Route::get('usercomplaints', 'UserController@service');
     
+    Route::get('customers', 'UserController@showCustomers');
+    
+    Route::get('deletecustomers/{id}', 'UserController@deleteCustomers');
+    
 });
+
 
 Route::group(array('before' => 'customer'), function() {
     
@@ -51,6 +59,7 @@ Route::group(array('before' => 'customer'), function() {
     Route::resource('complaints', 'ComplaintsController');
     
 });
+
 
 Route::group(array('before' => 'checkAdmin'), function() {
     
